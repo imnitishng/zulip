@@ -18,7 +18,7 @@
         </div>
         <div class="bottom-bar">
             <div class="description rendered_markdown" data-no-description="{{t 'No description.'}}">{{rendered_markdown rendered_description}}</div>
-            {{#if is_old_stream}}
+            {{#if stream_data.update_calculated_fields}}
             <div class="stream-message-count" data-toggle="tooltip" title="{{t 'Estimated messages per week' }}">
                 <i class="fa fa-bar-chart"></i>
                 <span class="stream-message-count-text">{{stream_weekly_traffic}}</span>

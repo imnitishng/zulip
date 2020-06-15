@@ -809,7 +809,7 @@ exports.sort_for_stream_settings = function (stream_ids, order) {
 
     function weekly_traffic(stream_id) {
         const sub = exports.get_sub_by_id(stream_id);
-        if (sub && sub.is_old_stream) {
+        if (sub && stream_data.update_calculated_fields) {
             return sub.stream_weekly_traffic;
         }
         // don't intersperse new streams with zero-traffic existing streams

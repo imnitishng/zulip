@@ -39,7 +39,7 @@ run_test('filter_table', () => {
             stream_id: 1,
             description: 'Copenhagen',
             subscribers: {size: 1},
-            is_old_stream: false,
+            // is_old_stream: false,
         },
         {
             elem: 'poland',
@@ -48,7 +48,7 @@ run_test('filter_table', () => {
             stream_id: 2,
             description: 'monday',
             subscribers: {size: 3},
-            is_old_stream: true,
+            // is_old_stream: true,
             stream_weekly_traffic: 13,
         },
         {
@@ -58,7 +58,7 @@ run_test('filter_table', () => {
             stream_id: 3,
             description: 'college',
             subscribers: {size: 0},
-            is_old_stream: true,
+            // is_old_stream: true,
             stream_weekly_traffic: 0,
         },
         {
@@ -68,7 +68,7 @@ run_test('filter_table', () => {
             stream_id: 4,
             description: 'programming lang',
             subscribers: {size: 2},
-            is_old_stream: true,
+            // is_old_stream: true,
             stream_weekly_traffic: 6,
         },
         {
@@ -78,7 +78,7 @@ run_test('filter_table', () => {
             stream_id: 5,
             description: 'california town',
             subscribers: {size: 2},
-            is_old_stream: true,
+            // is_old_stream: true,
             stream_weekly_traffic: 6,
         },
     ];

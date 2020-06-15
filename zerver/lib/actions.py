@@ -2683,7 +2683,7 @@ def notify_subscriptions_added(user_profile: UserProfile,
 
         sub_dict['in_home_view'] = not subscription.is_muted
         sub_dict['email_address'] = encode_email_address(stream, show_sender=True)
-        sub_dict['is_old_stream'] = is_old_stream(stream.date_created)
+        # sub_dict['is_old_stream'] = is_old_stream(stream.date_created)
         sub_dict['stream_weekly_traffic'] = get_average_weekly_stream_traffic(
             stream.id, stream.date_created, recent_traffic)
         sub_dict['subscribers'] = stream_user_ids(stream)
@@ -4664,9 +4664,9 @@ def get_average_weekly_stream_traffic(stream_id: int, stream_date_created: datet
 
     return round_to_2_significant_digits(average_weekly_traffic)
 
-def is_old_stream(stream_date_created: datetime.datetime) -> bool:
-    return (timezone_now() - stream_date_created).days \
-        >= STREAM_TRAFFIC_CALCULATION_MIN_AGE_DAYS
+# def is_old_stream(stream_date_created: datetime.datetime) -> bool:
+#     return (timezone_now() - stream_date_created).days \
+#         >= STREAM_TRAFFIC_CALCULATION_MIN_AGE_DAYS
 
 SubHelperT = Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]
 
@@ -4692,7 +4692,7 @@ def get_web_public_subs(realm: Realm) -> SubHelperT:
         stream_dict['push_notifications'] = True
         stream_dict['email_notifications'] = True
         stream_dict['pin_to_top'] = False
-        stream_dict['is_old_stream'] = is_old_stream(stream.date_created)
+        # stream_dict['is_old_stream'] = is_old_stream(stream.date_created)
         stream_weekly_traffic = get_average_weekly_stream_traffic(stream.id,
                                                                   stream.date_created,
                                                                   {})
@@ -4801,7 +4801,7 @@ def gather_subscriptions_helper(user_profile: UserProfile,
             stream['stream_post_policy'] == Stream.STREAM_POST_POLICY_ADMINS
 
         # Add a few computed fields not directly from the data models.
-        stream_dict['is_old_stream'] = is_old_stream(stream["date_created"])
+        # stream_dict['is_old_stream'] = is_old_stream(stream["date_created"])
         stream_dict['stream_weekly_traffic'] = get_average_weekly_stream_traffic(
             stream["id"], stream["date_created"], recent_traffic)
         stream_dict['email_address'] = encode_email_address_helper(
@@ -4844,7 +4844,7 @@ def gather_subscriptions_helper(user_profile: UserProfile,
                     continue
                 stream_dict[field_name] = stream[field_name]
 
-            stream_dict['is_old_stream'] = is_old_stream(stream["date_created"])
+            # stream_dict['is_old_stream'] = is_old_stream(stream["date_created"])
             stream_dict['stream_weekly_traffic'] = get_average_weekly_stream_traffic(
                 stream["id"], stream["date_created"], recent_traffic)
             # Backwards-compatibility addition of removed field.
