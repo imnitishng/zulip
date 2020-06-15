@@ -599,8 +599,6 @@ class EventsRegisterTest(ZulipTestCase):
         # our enormous payload does not get updated properly.  We
         # want the diff here to be developer-friendly, hence
         # the somewhat tedious code to provide useful output.
-        if state1 != state2:
-            print("a")
         if state1 != state2:  # nocoverage
             print('\n---States DO NOT MATCH---')
             print('\nEVENTS:\n')
